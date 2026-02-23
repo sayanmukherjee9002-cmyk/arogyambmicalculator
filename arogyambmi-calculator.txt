@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arogyam Health Care | BMI Calculator</title>
+
+<style>
+body{
+font-family: Arial, Helvetica, sans-serif;
+background:#edf5f9;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+margin:0;
+}
+
+.card{
+background:white;
+padding:30px;
+width:340px;
+border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.15);
+text-align:center;
+}
+
+.clinic{
+color:#0b6aa2;
+font-size:20px;
+font-weight:bold;
+margin-bottom:4px;
+}
+
+.place{
+font-size:13px;
+color:#555;
+margin-bottom:6px;
+}
+
+.doctor{
+font-size:13px;
+color:#444;
+margin-bottom:15px;
+}
+
+input{
+width:92%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+button{
+background:#0b6aa2;
+color:white;
+padding:10px 18px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.result{
+margin-top:12px;
+font-weight:bold;
+}
+
+.footer{
+font-size:12px;
+margin-top:14px;
+color:#666;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="clinic">Arogyam Health Care</div>
+<div class="place">Purulia</div>
+<div class="doctor">Dr. Pankaj Singhania<br>(Consultant Endocrinologist)</div>
+
+<h3>BMI Calculator</h3>
+
+<input id="h" type="number" placeholder="Height (cm)">
+<input id="w" type="number" placeholder="Weight (kg)">
+
+<button onclick="bmi()">Calculate BMI</button>
+
+<div class="result" id="result"></div>
+
+<div class="footer">
+Contact us for obesity, diabetes & thyroid management
+</div>
+
+</div>
+
+<script>
+function bmi(){
+let h=document.getElementById('h').value/100;
+let w=document.getElementById('w').value;
+
+if(!h || !w){
+alert("Please enter height and weight");
+return;
+}
+
+let b=(w/(h*h)).toFixed(2);
+
+let msg="";
+if(b<18.5) msg="Underweight";
+else if(b<25) msg="Normal";
+else if(b<30) msg="Overweight";
+else msg="Obese";
+
+document.getElementById("result").innerHTML =
+"Your BMI: " + b + " (" + msg + ")";
+}
+</script>
+
+</body>
+</html>
